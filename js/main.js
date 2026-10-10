@@ -14,6 +14,7 @@
     if (navigator.clipboard) navigator.clipboard.writeText(roomCode);
     toast('Code copié');
   };
+  $('diceBtn').onclick = () => { $('customTheme').value = pickTheme(); };
   $('dur').onchange = () => { $('durCustom').hidden = $('dur').value !== 'custom'; showIdleTime(); };
   $('durCustom').oninput = showIdleTime;
 

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <title>Coup de Crayon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
           <input id="durCustom" type="number" min="10" max="1800" value="90" title="Durée en secondes" hidden>
         </div>
       </div>
-      <div class="f"><span class="lbl">Thème</span><input id="customTheme" placeholder="Thème perso (vide = aléatoire)"></div>
+      <div class="f grow"><span class="lbl">Thème</span><div class="durwrap"><input id="customTheme" placeholder="Thème perso (vide = aléatoire)"><button type="button" class="ghost icobtn" id="diceBtn" title="Proposer un thème au hasard" aria-label="Thème au hasard"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></svg></button></div></div>
       <button id="startBtn">Lancer le round</button>
     </div>
   </section>
@@ -82,6 +82,8 @@
       <button class="tool" data-tool="rect" title="Rectangle (R)"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/></svg>Rectangle</button>
       <button class="tool" data-tool="ellipse" title="Ellipse (O)"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="6.5"/></svg>Ellipse</button>
       <button class="tool" data-tool="triangle" title="Triangle (T)"><svg viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/></svg>Triangle</button>
+      <button type="button" class="mobtool" id="undoBtn2" title="Annuler"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg>Annuler</button>
+      <button type="button" class="mobtool" id="clearBtn2" title="Vider le calque"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>Vider</button>
     </aside>
 
     <div class="stageWrap">
@@ -142,6 +144,7 @@
 
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 <script src="js/config.js"></script>
+<script src="js/themes.js"></script>
 <script src="js/drawing.js"></script>
 <script src="js/chat.js"></script>
 <script src="js/network.js"></script>

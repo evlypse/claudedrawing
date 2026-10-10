@@ -146,6 +146,7 @@ function setPhase(p){
   };
   $('overlay').hidden = !(p in msgs); $('ovMsg').textContent = msgs[p] || '';
   $('results').hidden = p !== 'results';
+  document.body.classList.toggle('in-results', p === 'results');
   $('startBtn').disabled = !(p === 'wait' || p === 'results');
   $('startBtn').textContent = p === 'wait' ? 'Lancer le round' : 'Thème suivant';
   if (p === 'results' || p === 'wait'){
@@ -158,10 +159,7 @@ function setPhase(p){
 function startRoundClick(){
   if (!isHost || !(phase === 'wait' || phase === 'results')) return;
   let t = $('customTheme').value.trim(); $('customTheme').value = '';
-  if (!t){
-    if (!deck.length) deck = [...THEMES].sort(() => Math.random() - .5);
-    t = deck.pop();
-  }
+  if (!t) t = pickTheme();
   const dur = getDur();
   drawings = {}; votes = {}; rv = {};
   bcast({ t: 'round', theme: t, dur }); startRound(t, dur);
@@ -228,6 +226,12 @@ function renderResults(items){
     row.appendChild(a);
     g.appendChild(d);
   });
+  if (isHost){
+    const nb = document.createElement('button');
+    nb.id = 'nextBtn'; nb.type = 'button'; nb.className = 'next'; nb.textContent = 'Thème suivant';
+    nb.onclick = startRoundClick;
+    r.appendChild(nb);
+  }
   updateHearts();
 }
 function updateHearts(){

@@ -19,7 +19,7 @@ function pos(e){
 function pushUndo(){
   const s = undo[active];
   s.push(ctxs[active].getImageData(0, 0, W, H));
-  if (s.length > 15) s.shift();
+  if (s.length > (COARSE ? 6 : 15)) s.shift();
 }
 function setupCtx(c, col){
   c.lineCap = 'round'; c.lineJoin = 'round';
@@ -200,3 +200,12 @@ function renderLayers(){
 }
 $('undoBtn').onclick = doUndo;
 $('clearBtn').onclick = () => { if (phase !== 'draw') return; pushUndo(); ctxs[active].clearRect(0, 0, W, H); };
+
+/* ---------- Confort tactile (téléphone / tablette) ---------- */
+const COARSE = !!(window.matchMedia && window.matchMedia('(pointer:coarse)').matches);
+if (COARSE){
+  size = 18; $('size').value = 18; $('sizeVal').textContent = '18 px';   // trait plus épais : le canvas est réduit sur petit écran
+}
+prev.addEventListener('contextmenu', e => e.preventDefault());
+$('undoBtn2').onclick = doUndo;
+$('clearBtn2').onclick = () => { if (phase !== 'draw') return; pushUndo(); ctxs[active].clearRect(0, 0, W, H); };

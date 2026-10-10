@@ -7,7 +7,8 @@ Jeu de dessin multijoueur : un thème par round, un temps limité pour dessiner,
 ```
 index.html        page principale (structure)
 css/style.css     apparence
-js/config.js      constantes (thèmes, palette) et petits utilitaires
+js/config.js      constantes (thèmes classiques, palette) et petits utilitaires
+js/themes.js      générateur de thèmes aléatoires (plus de 3 000 combinaisons)
 js/drawing.js     canvas, outils, remplissage, calques, couleurs récentes
 js/chat.js        chat de la room
 js/network.js     room, connexion PeerJS, déroulement des rounds, votes
