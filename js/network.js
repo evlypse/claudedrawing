@@ -27,7 +27,7 @@ function getDur(){
 function showIdleTime(){
   if (isHost && (phase === 'wait' || phase === 'results')){
     $('time').textContent = fmt(getDur());
-    $('barFill').style.width = '100%';
+    setProgress(100);
   }
 }
 
@@ -174,7 +174,7 @@ function startRound(theme, dur){
   const upd = () => {
     const left = Math.max(0, end - Date.now()), s = Math.ceil(left / 1000);
     $('time').textContent = fmt(s);
-    $('barFill').style.width = (left / (dur * 1000) * 100) + '%';
+    setProgress(left / (dur * 1000) * 100);
     $('timer').classList.toggle('low', s <= 10);
     if (left <= 0){ clearInterval(tick); endRound(); }
   };
