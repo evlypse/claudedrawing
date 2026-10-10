@@ -32,8 +32,8 @@ const THEMES = [
 
 const PALETTE = ['#000000','#4b5563','#9ca3af','#ffffff','#ef4444','#f97316','#facc15','#84cc16','#16a34a','#14b8a6','#0ea5e9','#2563eb','#7c3aed','#db2777','#92400e','#fbcfe8'];
 
-const LAYER_COLORS = ['#35d8a8','#27c9ea','#ff7ab8'];   // un repère de couleur par calque
-const PLAYER_COLORS = ['#7c5cff','#ff7ab8','#27c9ea','#ffbe55','#35d8a8','#ef5da8','#4f8cff','#f97316'];
+const LAYER_COLORS = ['#8cc49a','#6fb8a8','#e6879a'];   // un repère de couleur par calque
+const PLAYER_COLORS = ['#dd6f50','#d4849a','#5fae9e','#dfa24f','#8fb06a','#b9806b','#6d9ac2','#a98ad0'];
 
 const IC_EYE = '<svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
 const IC_EYEOFF = '<svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0112 5c6.4 0 10 7 10 7a17 17 0 01-3.2 4M6.5 6.6A17 17 0 002 12s3.6 7 10 7a9.5 9.5 0 004.2-1M9.9 9.9a3 3 0 004.2 4.2"/></svg>';
